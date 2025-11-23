@@ -1,4 +1,6 @@
-# Railway does not support deploying images directly from Microsoft's Container Registery at this time.
-ARG TAG_NAME=2022-latest
-
-FROM mcr.microsoft.com/mssql/server:$TAG_NAME
+FROM mcr.microsoft.com/mssql/server:2019-latest
+ENV ACCEPT_EULA=Y
+ENV SA_PASSWORD=YourPassword123!
+ENV MSSQL_PID=Express
+EXPOSE 1433
+CMD ["/opt/mssql/bin/sqlservr"]
